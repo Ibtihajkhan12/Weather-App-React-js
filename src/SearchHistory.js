@@ -1,8 +1,18 @@
-import React from 'react';
-import './SearchHistory.css'; 
+import React, { useState, useEffect } from 'react';
+import './SearchHistory.css';
 
 const SearchHistory = () => {
-  const history = JSON.parse(localStorage.getItem('weatherSearchHistory')) || [];
+  const [history, setHistory] = useState([]);
+
+  useEffect(() => {
+    const stored = JSON.parse(localStorage.getItem('weatherSearchHistory')) || [];
+    setHistory(stored);
+  }, []);
+
+  const clearHistory = () => {
+    localStorage.removeItem('weatherSearchHistory');
+    setHistory([]);
+  };
 
   return (
     <div className="history-container">
@@ -11,17 +21,22 @@ const SearchHistory = () => {
       {history.length === 0 ? (
         <p className="no-history">No search history found.</p>
       ) : (
-        <ul className="history-list">
-          {history.map((item, index) => (
-            <li key={index} className="history-item">
-              {item}
-            </li>
-          ))}
-        </ul>
+        <>
+          <ul className="history-list">
+            {history.map((item, index) => (
+              <li key={index} className="history-item">
+                {item}
+              </li>
+            ))}
+          </ul>
+
+          <button className="clear-button" onClick={clearHistory}>
+            Clear All
+          </button>
+        </>
       )}
     </div>
   );
 };
 
 export default SearchHistory;
-
