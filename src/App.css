@@ -125,3 +125,18 @@ button:hover {
     font-size: 0.95rem;
   }
 }
+
+.history-button {
+  padding: 10px 20px;
+  background-color: #008CBA;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.history-button:hover {
+  background-color: #005f75;
+}
