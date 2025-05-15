@@ -1,8 +1,14 @@
- Reset
+/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+/* Base styles */
+html, body {
+  width: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -12,12 +18,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding: 2rem 1rem;
+  padding: 2rem;
   min-height: 100vh;
 }
 
 /* Main Container */
- .app {
+.app {
   background: #ffffff;
   padding: 2rem;
   border-radius: 12px;
@@ -106,41 +112,7 @@ button:hover {
   font-weight: 500;
 }
 
-/* Responsive Design */
-@media screen and (max-width: 480px) {
-  .app {
-    padding: 1.5rem 1rem;
-    width: 100%;
-  }
-
-  h1 {
-    font-size: 1.5rem;
-  }
-
-  .weather-info h2 {
-    font-size: 1.1rem;
-  }
-
-  .weather-info p {
-    font-size: 0.95rem;
-  }
-}
-
-.history-button {
-  padding: 10px 20px;
-  background-color: #008CBA;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: 0.3s;
-}
-
-.history-button:hover {
-  background-color: #005f75;
-}
-
+/* History Button */
 .history-button {
   padding: 12px 24px;
   background-color: #0277bd;
@@ -154,5 +126,38 @@ button:hover {
 }
 
 .history-button:hover {
-  background-color: #0277bd;
-} 
+  background-color: #005f75;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 480px) {
+  body {
+    padding: 1rem;
+  }
+
+  .app {
+    padding: 1.2rem 1rem;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    border-radius: 0; /* Optional: remove rounded corners on very small screens */
+    box-shadow: none;  /* Optional: remove shadow for edge-to-edge design */
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .weather-info h2 {
+    font-size: 1.1rem;
+  }
+
+  .weather-info p {
+    font-size: 0.95rem;
+  }
+
+  .history-button {
+    width: 100%;
+    font-size: 15px;
+  }
+}
